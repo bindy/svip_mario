@@ -1,0 +1,154 @@
+@charset "utf-8";
+@import "compass/utilities/sprites";	// 雪碧图生成
+@import "compass/css3/background-size";	// Include helper to calc background size
+
+
+// 第一种用法
+// $icons-layout: smart; 			// icon 排列方式，必须写在 @import 前，其他值：smart、vertical、diagonal
+// $icons-spacing: 10px;			// 设置雪碧图边距，不过实测无效（因为 smart 与 spacing 不能同时用）
+// $icons-sort-by: 'height';		// 根据 width 或 height 排序
+// // $icons-sprite-dimensions: true;	// 自动获取 width 和 height，如有这个则不需要 icons-sprite-width/height
+// @import "icons/*.png";  			// 生成雪碧图
+
+// // @include all-icons-sprites;  	// 导入所有图标的样式
+
+// .somediv {
+//   // height: icons-sprite-height(crown)/2;
+//   // width: icons-sprite-width(crown)/2;
+
+//   @include retina-sprite(cloud);
+// }
+
+
+
+// 第二种用法
+// $icons: sprite-map("icons/*.png", $spacing: 5px, $layout: vertical);
+// .bold-icon {
+//   	background-image: sprite-url($icons);						// 获取 sprites 的相对地址
+//   	background-position: sprite-position($icons, crown);		// 获取 crown 的 background-position
+//   	array: sprite-names($icons);								// 获取 icon 数组
+
+	
+//   	withoutURL: sprite-path($icons);							// 不带 url() 的绝对路径
+//   	withURL: sprite-url($icons);								// 带 url() 的相对路径
+
+//   	width: image-width(sprite-file($icons, crown));			// 获取 width
+//  	height: image-height(sprite-file($icons, crown));			// 获取 height
+//   	@include sprite-dimensions($icons, crown);				// 根据 crown 的原始尺寸设置 width 和 height
+
+// }
+
+
+// 其他：在第一种用法中，如果为图片命名 a.png, a_hover.png, a_active.png，
+// 那么在生成 CSS 的时候会自动匹配 :active、:hover 状态，
+// 如果想取消，可以在 @include icons-sprite() 前添加 $disable-magic-sprite-selectors:true;
+ 
+
+
+// =================实操======================
+
+// 核心函数
+@mixin retina-sprite($sprite, $name) { 
+
+	$imgurl: sprite-file($sprite, $name);
+	$pos: sprite-position($sprite, $name);
+
+	width: image-width($imgurl) / 2;
+	height: image-height($imgurl) / 2;
+
+	background-image: sprite-url($sprite);
+	background-position: nth($pos, 1) / 2 nth($pos, 2) / 2;
+
+	@include background-size(ceil(image-width(sprite-path($sprite)) / 2) auto);
+}
+@mixin sprite($sprite, $name) { 
+
+	$imgurl: sprite-file($sprite, $name);
+	$pos: sprite-position($sprite, $name);
+
+	width: image-width($imgurl) ;
+	height: image-height($imgurl) ;
+
+	background-image: sprite-url($sprite);
+	background-position: nth($pos, 1)  nth($pos, 2) ;
+
+}
+
+$icons0: sprite-map("icons0/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-page0($name) {
+	@include retina-sprite($icons0, $name);
+}
+ 
+
+// 第一屏雪碧图
+$icons1: sprite-map("icons1/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-page1($name) {
+	@include retina-sprite($icons1, $name);
+}
+// 第二屏雪碧图
+$icons2: sprite-map("icons2/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-page1_2($name) {
+	@include retina-sprite($icons2, $name);
+}
+
+// 第三屏雪碧图
+$icons3: sprite-map("icons3/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-page2($name) {
+	@include retina-sprite($icons3, $name);
+}
+
+// 第四屏雪碧图
+$icons4: sprite-map("icons4/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-page4($name) {
+	@include retina-sprite($icons4, $name);
+}
+
+// 背景图
+$background: sprite-map("background/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-background($name) {
+	@include retina-sprite($background, $name);
+}
+
+
+// 砖块图
+$brick: sprite-map("brick/*.png", $spacing: 10px, $layout: vertical);
+@mixin retina-brick($name) {
+	@include retina-sprite($brick, $name);
+}
+
+
+// 红毛雪碧图(因为是逐帧动画，需要按顺序拼)
+$hongmao: sprite-map("hongmao/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin retina-hongmao($name) {
+	@include retina-sprite($hongmao, $name);
+}
+ 
+// 金毛雪碧图
+$jinmao: sprite-map("jinmao/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin retina-jinmao($name) {
+	@include retina-sprite($jinmao, $name);
+}
+
+// 蛋壳雪碧图
+$egg: sprite-map("egg/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin egg($name) {
+	@include sprite($egg, $name);
+}
+
+// 烟雾雪碧图
+$smog: sprite-map("smog/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin smog($name) {
+	@include sprite($smog, $name);
+}
+
+// 速度线
+$flag: sprite-map("flag/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin flag($name) {
+	@include sprite($flag, $name);
+}
+
+// 速度线
+$speed: sprite-map("speed/*.png", $layout: vertical, $hongmao-sort-by: name);
+@mixin speed($name) {
+	@include sprite($speed, $name);
+}

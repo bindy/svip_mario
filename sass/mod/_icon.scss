@@ -1,0 +1,236 @@
+@charset "utf-8";
+@import "../lib/function";
+
+/* =========== page1 =============*/
+.icon-signboard {
+	@include retina-page1(signboard);
+}
+.icon-mountain {
+	@include retina-background(mountain);
+}
+.icon-cloud {
+	@include retina-background(cloud);
+}
+.icon-light {
+	width: 320px;
+	height: 320px;
+	background-image: url('../img/light.png');
+}
+
+.icon-born {
+	@include retina-page1(born);
+}
+.icon-star {
+	@include retina-page1_2(star);
+}
+.icon-brick {
+	@include retina-page1_2(brick);
+}
+.icon-gold {
+	@include retina-page1_2(gold);
+}
+.icon-mushroom {
+	@include retina-page1_2(mushroom);
+}
+.icon-flower {
+	@include retina-page1_2(flower);
+}
+.icon-well {
+	@include retina-page1_2(well);
+}
+.icon-egg {
+	@include retina-page0(egg);
+}
+.icon-e-tips {
+	@include retina-page0(e_tips);
+}
+.icon-arrow {
+	@include retina-page1_2(arrow);
+}
+.icon-text {
+	@include retina-page1_2(text);
+}
+
+/* =========== page2 =============*/
+
+
+.icon-p-gxmp {
+	@include retina-page2(p_gxmp);
+}
+.icon-p-dcqp {
+	@include retina-page2(p_dcqp);
+}
+.icon-p-pmkq {
+	@include retina-page2(p_pmkq);
+}
+.icon-p-sfmp {
+	@include retina-page2(p_sfmp);
+}
+.icon-coin {
+	@include retina-page2(coin);
+}
+.icon-wall {
+	@include retina-page2(wall);
+}
+.icon-yellow-light {
+	width: 320px;
+	height: 320px;
+	background-image: url(../img/yellow-light.png);
+}
+
+/* =========== page3 =============*/
+.icon-v-well {
+	@include retina-page2(well);
+}
+.icon-jinmao-born {
+	@include retina-page2(jinmao);
+}
+.icon-duang {
+	@include retina-page2(duang);
+}
+
+/* =========== page4 =============*/
+.icon-v-r-well {
+	@include retina-page2(well);
+	-webkit-transform: rotate(180deg)
+}
+.icon-flagpole {
+	@include retina-page4(flagpole)
+}
+.icon-flag {
+	@include retina-page4(flag)
+}
+.icon-castle {
+	@include retina-page4(castle)
+}
+.icon-jinmao-hold {
+	@include retina-page4(jinmao)
+}
+
+.icon-flag-brick {
+	width: 46px;
+	height: 23px;
+	background-image: url(../img/brick-se25e374d52.png);
+	background-position: 0 -52px;
+	background-size: 46px auto;
+}
+.icon-global-speed1 {
+	width: 600px;
+	height: 800px;
+	background-image: url(../img/global-speed1.png);
+	background-repeat: no-repeat;
+}
+.icon-global-speed2 {
+	width: 600px;
+	height: 800px;
+	background-image: url(../img/global-speed2.png);
+	background-repeat: no-repeat;
+}
+.icon-svip-title {
+	@include retina-page4(title)
+}
+.btn-open {
+	-webkit-appearance: none;
+	border: 0;
+	padding: 0;
+	background: none;
+	font-size: 20px;
+	color: #fff;
+	width: 257px;
+	height: 49px;
+	text-align: center;
+	line-height: 49px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(238, 76, 27, 1)), color-stop(50%, rgba(229, 55, 41, 1)), color-stop(100%, rgba(226, 47, 46, 1)));
+	background: linear-gradient(to bottom, rgba(238, 76, 27, 1) 0%, rgba(229, 55, 41, 1) 50%, rgba(226, 47, 46, 1) 100%);
+	border-bottom: 2px solid #b82f12;
+
+	&:active {
+		background: #e2302e
+	}
+	&:focus {
+		outline: 0;
+		-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	}
+}
+
+/* =========== 背景图 =============*/
+.icon-brick1 {
+	width: 100% !important;
+	display: block;
+	height: 46px !important;
+	@include retina-brick(brick1);
+	background-repeat: repeat-x;
+}
+.icon-ground1 {
+	width: 100% !important;
+	display: block;
+	@include retina-background(ground1);
+	background-repeat: repeat-x;
+}
+.icon-brick2 {
+	width: 100% !important;
+	display: block;
+	height: 45px !important;
+	@include retina-brick(brick2);
+	background-repeat: repeat-x;
+}
+.icon-ground2 {
+	width: 100% !important;
+	display: block;
+	@include retina-background(ground2);
+	background-repeat: repeat-x;
+}
+
+/* =========== 动画元素 =============*/
+.icon-hongmao {
+	@include retina-hongmao(s1);
+}
+.icon-jinmao {
+	@include retina-jinmao(s1);
+}
+.icon-egg-break {
+	@include egg(e1);
+}
+.icon-smog {
+	@include smog(s1);
+}
+.icon-speed {
+	@include speed(s1);
+}
+.icon-castle-flag {
+	@include flag(h1);
+}
+
+/* ==  vip icons  == */
+
+/*图标基类*/
+.ui-icon-viplevel, .ui-icon-viplevel-s, .ui-icon-sviplevel, .ui-icon-sviplevel-s, .ui-icon-yearviplevel, .ui-icon-yearviplevel-s, .ui-icon-yearsviplevel, .ui-icon-yearsviplevel-s, .ui-icon-mq {
+	display: inline-block;
+	height: 1px;
+	position: relative;
+	vertical-align: middle;
+}
+.ui-icon-viplevel span, .ui-icon-viplevel-s span, .ui-icon-sviplevel span, .ui-icon-sviplevel-s span, .ui-icon-yearviplevel span, .ui-icon-yearviplevel-s span, .ui-icon-yearsviplevel span, .ui-icon-yearsviplevel-s span, .ui-icon-mq span {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	line-height: 100px;
+}
+
+/*等级图标*/
+
+/*宽度与背景size*/
+
+
+.ui-icon-sviplevel {
+	width: 59px;
+}
+.ui-icon-sviplevel span {
+	-webkit-background-size: auto 22px;
+	height: 22px;
+	top: -14px;
+}
